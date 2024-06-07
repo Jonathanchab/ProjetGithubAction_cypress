@@ -15,5 +15,9 @@ jobs:
         spec: cypress/e2e/connection.cy.js
         browser: chrome
 
+     - name: Generer un rapport
+       run: npx cypress run --reporter cypress-mochawesome-reporter
+
+
 
  
