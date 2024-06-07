@@ -15,8 +15,15 @@ jobs:
         spec: cypress/e2e/connection.cy.js
         browser: chrome
 
-     - name: Generer un rapport
-       run: npx cypress run --reporter cypress-mochawesome-reporter
+     - name: Install dependencies
+       run: npm install
+
+     - name: Archive test results
+       if: always()
+       uses: actions/upload-artifact@v2
+       with:
+         name: cypress-report
+         path: cypress/reports
 
 
 
