@@ -9,21 +9,11 @@ jobs:
      - name: Checkout code
        uses: actions/checkout@v4
 
-     - name: Install Cypress
-       uses: cypress-io/github-action@v6
-       with:
-        spec: cypress/e2e/connection.cy.js
-        browser: chrome
-
      - name: Install dependencies
        run: npm install
 
-     - name: Archive test results
-       if: always()
-       uses: actions/upload-artifact@v2
-       with:
-         name: cypress-report
-         path: cypress/reports/html
+     - name: Execution test
+       run: npx cypress run --spec cypress/e2e/connection.cy.js      
 
 
 
